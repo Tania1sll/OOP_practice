@@ -73,3 +73,13 @@ std::ostream& operator<<(ostream& out, const Car& car)
 
     return out;
 }
+bool Car::operator==(const Car& other) const {
+    return (id == other.id) &&
+        (year == other.year) &&
+        (price == other.price) &&
+        (rNumber == other.rNumber) &&
+        (places == other.places) &&
+        (door == other.door) &&
+        (model == other.model) &&
+        (vinCode == other.vinCode);
+}

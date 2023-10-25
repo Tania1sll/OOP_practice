@@ -12,6 +12,7 @@ public:
 	Car(const Car&);
 	friend istream& operator>>(istream& cin, Car& car);
 	friend ostream& operator<<(ostream& out, const Car& car);
+	bool operator==(const Car& other) const;
 	~Car();
 	
 };
