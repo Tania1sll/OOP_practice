@@ -2,19 +2,38 @@
 //
 
 #include <iostream>
+#include "Car.h"
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+Car::Car() {
+    id = 0; year = 0; price = 0; rNumber = 0; places = 0; door = 0; model = ""; vinCode = "";
 }
+Car::Car(int id, int year,int price, int rNumber, int places, int door, string model, string vinCode)
+{
+    this->id = id;
+    this->year = year;
+    this->price = price;
+    this->rNumber = rNumber;
+    this->places = places;
+    this->door = door;
+    this->model = model;
+    this->vinCode =vinCode;
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+}
+Car::Car(const Car& other)
+{
+    this->id = other.id;
+    this->year = other.year;
+    this->price = other.price;
+    this->rNumber = other.rNumber;
+    this->places = other.places;
+    this->door = other.door;
+    this->model = other.model;
+    this->vinCode = other.vinCode;
+}
+Car::~Car()
+{
+  
+  
+}
