@@ -10,6 +10,7 @@ public:
 	Car();
 	Car(int, int, int, int, int, int, string, string);
 	Car(const Car&);
+	friend istream& operator>>(istream& cin, Car& car);
 	~Car();
 
 };
