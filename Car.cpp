@@ -59,3 +59,17 @@ std::istream& operator>>(istream& cin, Car& car) {
 
     return cin;
 }
+std::ostream& operator<<(ostream& out, const Car& car)
+{
+    out << "Car Information:" << endl;
+    out << "ID: " << car.id << endl;
+    out << "Year: " << car.year << endl;
+    out << "Price: " << car.price << endl;
+    out << "Registration Number: " << car.rNumber << endl;
+    out << "Number of Places: " << car.places << endl;
+    out << "Number of Doors: " << car.door << endl;
+    out << "Model: " << car.model << endl;
+    out << "VIN Code: " << car.vinCode << endl;
+
+    return out;
+}

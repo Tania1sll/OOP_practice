@@ -6,4 +6,7 @@ using namespace std;
 int main() {
 	Car object1, object2, object3;
 	cin >> object1 >> object2 >> object3;
+	cout << object1<<endl;
+	cout << object2<<endl;
+	cout << object3<<endl;
 }
