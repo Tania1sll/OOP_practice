@@ -35,25 +35,18 @@ Car::~Car()
 std::istream& operator>>(istream& cin, Car& car) {
     cout << "Enter Car id: "<< endl;
     cin >> car.id;
-
     cout << "Enter year: " << endl;
     cin >> car.year;
-
     cout << "Enter Price: " << endl;
     cin >> car.price;
-
     cout << "Enter Registration Number: " << endl;
     cin >> car.rNumber;
-
     cout << "Enter Number of Places: " << endl;
     cin >> car.places;
-
     cout << "Enter Number of Doors: " << endl;
     cin >> car.door;
-
     cout << "Enter Model: " << endl;
     cin >> car.model;
-
     cout << "Enter VIN Code: " << endl;
     cin >> car.vinCode;
 
