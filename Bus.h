@@ -1,19 +1,15 @@
 #pragma once
 #include <iostream>
+#include "Bus.h"
+#include "BaseBusCar.h"
 using namespace std;
+ class Bus : public BaseBusCar
+ {
+	 bool placesInvalidity;
+ public:
+	 friend istream& operator>>(std::istream& input, Bus& obj);
+	 friend ostream& operator<<(std::ostream& output, Bus& obj);
+	 bool operator==(const Bus& bus) const;
+ };
 
-class Bus
-{
-	int id, year, price, rNumber, places;
-	string model;
-	bool placesInvalidity;
-public:
-	Bus();
-	Bus(int id, int year, int price, int rNumber, int places, string model, bool placesInvalidity);
-	Bus(const Bus&);
-	friend istream& operator>>(istream& cin, Bus& bus);
-	friend ostream& operator<<(ostream& out, const	Bus& bus);
-	bool operator==(const Bus& other) const;
-	~Bus();
 
-};

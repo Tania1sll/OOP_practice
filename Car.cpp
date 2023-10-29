@@ -1,78 +1,56 @@
-#include <iostream>
 #include "Car.h"
-using namespace std;
+#include "BaseBusCar.h"
 
 Car::Car() {
-    id = 0; year = 0; price = 0; rNumber = 0; places = 0; door = 0; model = ""; vinCode = "";
+    //id = 0; year = 0; price = 0; rNumber = 0; places = 0; 
+    door = 0;
+  //  model = ""; 
+    vinCode = "";
 }
 Car::Car(int id, int year, int price, int rNumber, int places, int door, string model, string vinCode)
 {
-    this->id = id;
+   /* this->id = id;
     this->year = year;
     this->price = price;
     this->rNumber = rNumber;
-    this->places = places;
+    this->places = places;*/
     this->door = door;
-    this->model = model;
+   // this->model = model;
     this->vinCode = vinCode;
 
 }
 Car::Car(const Car& other)
 {
-    this->id = other.id;
+   /* this->id = other.id;
     this->year = other.year;
     this->price = other.price;
     this->rNumber = other.rNumber;
-    this->places = other.places;
+    this->places = other.places;*/
     this->door = other.door;
-    this->model = other.model;
+    /*this->model = other.model;*/
     this->vinCode = other.vinCode;
 }
 Car::~Car()
 {
 
 }
-std::istream& operator>>(istream& cin, Car& car) {
-    cout << "Enter Car id: "<< endl;
-    cin >> car.id;
-    cout << "Enter year: " << endl;
-    cin >> car.year;
-    cout << "Enter Price: " << endl;
-    cin >> car.price;
-    cout << "Enter Registration Number: " << endl;
-    cin >> car.rNumber;
-    cout << "Enter Number of Places: " << endl;
-    cin >> car.places;
+std::istream& operator>>(std::istream& input, Car& obj) {
+    BaseBusCar& basebus = obj;
+    input >> basebus;
     cout << "Enter Number of Doors: " << endl;
-    cin >> car.door;
-    cout << "Enter Model: " << endl;
-    cin >> car.model;
+    input >> obj.door;
     cout << "Enter VIN Code: " << endl;
-    cin >> car.vinCode;
-
-    return cin;
+    input >> obj.vinCode;
+    return input;
 }
-std::ostream& operator<<(ostream& out, const Car& car)
+std::ostream& operator<<(std::ostream& output, Car& obj)
 {
-    out << "Car Information:" << endl;
-    out << "ID: " << car.id << endl;
-    out << "Year: " << car.year << endl;
-    out << "Price: " << car.price << endl;
-    out << "Registration Number: " << car.rNumber << endl;
-    out << "Number of Places: " << car.places << endl;
-    out << "Number of Doors: " << car.door << endl;
-    out << "Model: " << car.model << endl;
-    out << "VIN Code: " << car.vinCode << endl;
-
-    return out;
+    BaseBusCar& basebus = obj;
+    output<< basebus;
+    output << "Number of Doors: " << obj.door<< endl;
+    output << "VIN Code: " << obj.vinCode << endl;
+    return output;
 }
 bool Car::operator==(const Car& other) const {
-    return (id == other.id) &&
-        (year == other.year) &&
-        (price == other.price) &&
-        (rNumber == other.rNumber) &&
-        (places == other.places) &&
-        (door == other.door) &&
-        (model == other.model) &&
-        (vinCode == other.vinCode);
+    return (door == other.door) &&  (vinCode == other.vinCode);
 }

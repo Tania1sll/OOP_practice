@@ -1,29 +1,28 @@
-﻿// НП з ООП 1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-#include <iostream>
+﻿#include <iostream>
 #include "Car.h"
+#include "Bus.h"
 using namespace std;
 int main() {
-	Car object1, object2, object3;
-	cin >> object1 >> object2 >> object3;
+	Car object1, object2;
+	cin >> object1 >> object2;
 	cout << "   " << endl;
 	cout << object1<<endl;
 	cout << object2<<endl;
-	cout << object3<<endl;
 
 	if (object1 == object2)
 		cout << "object1==object2"<<endl;
 	else 
 		cout << "object1 != object2" << endl;
 
-	if (object1 == object3)
-		cout << "object1==object3" << endl;
-	else
-		cout << "object1 != object3" << endl;
+	Bus bus1, bus2;
+	cin >> bus1 >> bus2;
+	cout << "   " << endl;
+	cout << bus1 << endl;
+	cout << bus2 << endl;
 
-	if (object2 == object3)
-		cout << "object2==object3" << endl;
+	if (bus1 == bus2)
+		cout << "bus1==bus2" << endl;
 	else
-		cout << "object2 != object3" << endl;
-
+		cout << "bus1 != bus2" << endl;
 }
+

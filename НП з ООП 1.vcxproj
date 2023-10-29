@@ -128,11 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseBusCar.cpp" />
     <ClCompile Include="Bus.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="НП з ООП 1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseBusCar.h" />
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Car.h" />
   </ItemGroup>

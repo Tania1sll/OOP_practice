@@ -24,12 +24,18 @@
     <ClCompile Include="Bus.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseBusCar.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseBusCar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
