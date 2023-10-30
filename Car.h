@@ -14,6 +14,9 @@ public:
 	friend istream& operator>>(std::istream& input, Car& obj);
 	friend ostream& operator<<(std::ostream& output, Car& obj);
 	bool operator==(const Car& other) const;
+	void input() override;
+	void output()override;
 	~Car();
+
 	
 };

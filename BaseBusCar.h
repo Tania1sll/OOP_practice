@@ -3,10 +3,10 @@
 using namespace std;
 class BaseBusCar
 {
-	int id, year, price, rNumber, places, getName;
-	string model;
+	int id, year, price, rNumber, places;
 public:
-	virtual void Show() { cout << "Base class\n"; }
 	friend istream& operator>>(std::istream& input, BaseBusCar& obj);
 	friend ostream& operator<<(std::ostream& output, BaseBusCar& obj);
+	virtual void input();
+	virtual void output();
 };

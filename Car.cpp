@@ -40,3 +40,15 @@ std::ostream& operator<<(std::ostream& output, Car& obj)
 bool Car::operator==(const Car& other) const {
     return (door == other.door) &&  (vinCode == other.vinCode);
 }
+void Car::input() {
+    BaseBusCar::input();
+    cout << "Enter Number of Doors: " << endl;
+    cin >> door;
+    cout << "Enter VIN Code: " << endl;
+    cin >> vinCode;
+}
+void Car::output() {
+    BaseBusCar::output();
+    cout << "door: " << door << endl;
+    cout << "vin code: " << vinCode << endl;
+}

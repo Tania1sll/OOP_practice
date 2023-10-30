@@ -22,3 +22,22 @@ std::ostream& operator<<(std::ostream& output, BaseBusCar& obj) {
     output << "Number of Places: " << obj.places << endl;
 	return output;
 }
+void BaseBusCar::input() {
+    cout << "Enter id: " << endl;
+    cin >> id;
+    cout << "Enter year: " << endl;
+    cin >> year;
+    cout << "Enter Price: " << endl;
+    cin >> price;
+    cout << "Enter rNumber: " << endl;
+    cin >> rNumber;
+    cout << "Enter Number of Places: " << endl;
+    cin >> places;
+}
+void BaseBusCar::output() {
+	cout << "id: " << id << endl;
+	cout << "year: " << year<< endl;
+	cout << "Enter Price: " << price << endl;
+	cout << "Enter rNumber: " << rNumber << endl;
+	cout << "Enter Number of Places: " << places << endl;
+}

@@ -19,3 +19,14 @@ std::ostream& operator<<(std::ostream& output, Bus& obj) {
 bool Bus::operator==(const Bus& bus) const {
 	return placesInvalidity == bus.placesInvalidity ;
 }
+void Bus::input() {
+	BaseBusCar::input();
+	cout << "Enter places Invalidity (Yes or No): ";
+	cin >> placesInvalidity;
+	string placesInvalidity;
+	placesInvalidity = (placesInvalidity == "Yes");
+}
+void Bus::output() {
+	BaseBusCar::output();
+	cout << "Enter places Invalidity" << (placesInvalidity ? "Yes" : "No") << endl;
+}
