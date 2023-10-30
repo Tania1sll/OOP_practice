@@ -1,4 +1,6 @@
 #include "BaseBusCar.h"
+#include "Car.h"
+#include "Bus.h"
 std::istream& operator>>(std::istream& input, BaseBusCar& obj) {
     cout << "Enter id: " << endl;
     input >> obj.id;
