@@ -1,2 +1,9 @@
-﻿  НП з ООП 1.cpp
+﻿  Bus.cpp
+  НП з ООП 1.cpp
+  Generating Code...
+D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\НП з ООП 1\Vector.h(44): warning C4715: 'Vector<double>::at': not all control paths return a value
+D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\НП з ООП 1\Vector.h(44): warning C4715: 'Vector<int>::at': not all control paths return a value
+D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\НП з ООП 1\Vector.h(44): warning C4715: 'Vector<char>::at': not all control paths return a value
+D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\НП з ООП 1\Vector.h(44): warning C4715: 'Vector<Car *>::at': not all control paths return a value
+D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\НП з ООП 1\Vector.h(44): warning C4715: 'Vector<Bus *>::at': not all control paths return a value
   НП з ООП 1.vcxproj -> D:\Desktop\програмування\Навчальна практика ООП\НП з ООП 1\x64\Debug\Car.cpp.exe

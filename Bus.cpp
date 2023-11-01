@@ -1,5 +1,16 @@
 #include "Bus.h"
 #include "BaseBusCar.h"
+Bus::Bus() {
+	placesInvalidity = "";
+}
+Bus::Bus(const Bus& other)
+{
+	this->placesInvalidity = other.placesInvalidity;
+}
+Bus::~Bus()
+{
+
+}
 std::istream& operator>>(std::istream& input, Bus& obj) {
 	BaseBusCar& basebus = obj;
 	input >> basebus;
@@ -28,5 +39,5 @@ void Bus::input() {
 }
 void Bus::output() {
 	BaseBusCar::output();
-	cout << "Enter places Invalidity" << (placesInvalidity ? "Yes" : "No") << endl;
+	cout << "Enter places Invalidity: " << (placesInvalidity ? "Yes" : "No") << endl;
 }
