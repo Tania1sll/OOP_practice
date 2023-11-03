@@ -43,11 +43,11 @@ bool Car::operator==(const Car& other) const {
 }
 void Car::input() {
     BaseBusCar::input();
-    cout << "Enter Number of Doors: " << endl;
+    cout << "Enter Number of Doors: ";
     cin >> door;
-    cout << "Enter model: " << endl;
+    cout << "Enter model: ";
     cin >> model;
-    cout << "Enter VIN Code: " << endl;
+    cout << "Enter VIN Code: ";
     cin >> vinCode;
 }
 void Car::output() {
@@ -56,3 +56,4 @@ void Car::output() {
     cout << "model: " << model << endl;
     cout << "vin code: " << vinCode << endl;
 }
+int Car::getId() { return BaseBusCar::getId(); }

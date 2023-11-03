@@ -7,6 +7,7 @@ using namespace std;
  {
 	 bool placesInvalidity;
  public:
+	 int getId();
 	 Bus();
 	 Bus(int id, int year, int price, int rNumber, int places, bool placesInvalidity):
 		 BaseBusCar(id, year, price, rNumber, places), placesInvalidity(placesInvalidity) {}

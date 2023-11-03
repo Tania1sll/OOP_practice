@@ -4,6 +4,9 @@
 #include "Vector.h"
 #include <vector>
 #include <algorithm>
+#include <list>
+#include <ctime>
+#include <map>
 using namespace std;
 //int main() {
 //
@@ -73,8 +76,85 @@ using namespace std;
 //
 //        return 0;
 //}
+void input(map<int, BaseBusCar*>&baseMap, BaseBusCar&base){
+    base.input();
+    baseMap[base.getId()] = &base;
+    cout << endl;
+}
 int main() {
-    vector<int> numbers1(10);
+    srand(time(nullptr));
+    list<int>list1;
+    for (int i = 0; i < 10; i++) {
+        int randomNumber = (rand() % 10) * 2 + 1;
+        list1.push_back(randomNumber);
+    }
+    cout << "List one: ";
+    for (auto item = list1.begin(); item != list1.end(); ++item) {
+        cout << *item << " ";
+    }
+    cout << endl;
+    list<int>list2;
+    for (int i = 0; i < 10; i++) {
+        int randomNumber = (rand() % 10) * 2;
+        list2.push_back(randomNumber);
+    }
+    cout << "List two: ";
+    for (auto item = list2.begin(); item != list2.end(); ++item) {
+        cout << *item << " ";
+    }
+    cout << endl;
+
+    list<int>list3;
+    cout << "List three: ";
+    list1.sort();
+    list2.sort();
+    merge(list1.begin(), list1.end(), list2.begin(), list2.end(), inserter(list3, list3.end()));
+
+    for (const int& item : list3) {
+        cout << item << " ";
+    }
+    cout << endl;
+
+    map<int, BaseBusCar*> baseBusCar;
+        Car car, car1;
+        Bus bus, bus1;
+        int choice;
+        do {
+            cout << endl;
+            cout << "Enter 1 to insert data`s;\nEnter 2 to print data`s\nExit-3\n\tYour choice:";
+            cin >> choice;
+            cout << endl;
+            switch (choice)
+            {
+        case 1:
+            cout << "\t\t\t Car one\n";
+            input(baseBusCar, car);
+            cout << "\t\t\t Car two\n";
+            input(baseBusCar, car1);
+            cout << "\t\t\t Bus one\n";
+            input(baseBusCar, bus);
+            cout << "\t\t\t Bus two\n";
+            input(baseBusCar, bus1);
+            break;
+        case 2:
+            int id;
+            cout << "Enter object`s id: ";
+            cin >> id;
+            if (baseBusCar.find(id) != baseBusCar.end()) {
+                baseBusCar[id]->output();
+            }
+            else {
+                cout << "There`s no object with id " << id << endl;
+            }
+            break;
+        case 3: break;
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
+    /*vector<int> numbers1(10);
 
     int num;
     cout << "\t\t\tVector one\n";
@@ -171,6 +251,6 @@ int main() {
         cout << *it2;
     }
     cout << endl << endl;
-}
+}*/
 
 

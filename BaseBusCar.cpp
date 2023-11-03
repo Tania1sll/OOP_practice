@@ -23,15 +23,15 @@ std::ostream& operator<<(std::ostream& output, BaseBusCar& obj) {
 	return output;
 }
 void BaseBusCar::input() {
-    cout << "Enter id: " << endl;
+    cout << "Enter id: ";
     cin >> id;
-    cout << "Enter year: " << endl;
+    cout << "Enter year: ";
     cin >> year;
-    cout << "Enter Price: " << endl;
+    cout << "Enter Price: ";
     cin >> price;
-    cout << "Enter rNumber: " << endl;
+    cout << "Enter rNumber: ";
     cin >> rNumber;
-    cout << "Enter Number of Places: " << endl;
+    cout << "Enter Number of Places: ";
     cin >> places;
 }
 void BaseBusCar::output() {
@@ -40,4 +40,8 @@ void BaseBusCar::output() {
 	cout << "Enter Price: " << price << endl;
 	cout << "Enter rNumber: " << rNumber << endl;
 	cout << "Enter Number of Places: " << places << endl;
+}
+int BaseBusCar::getId()const
+{
+    return id;
 }

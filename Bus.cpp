@@ -41,3 +41,4 @@ void Bus::output() {
 	BaseBusCar::output();
 	cout << "Enter places Invalidity: " << (placesInvalidity ? "Yes" : "No") << endl;
 }
+int Bus::getId() { return BaseBusCar::getId(); }

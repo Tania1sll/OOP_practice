@@ -9,6 +9,7 @@ class Car : public BaseBusCar
 	string vinCode;
 	string model;
 public:
+	int getId();
 	Car();
 	Car(int id, int year, int price, int rNumber, int places, int door, string model, string vinCode) :
 		BaseBusCar( id,  year,  price,  rNumber,  places), door(door), vinCode(vinCode){}

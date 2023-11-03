@@ -5,6 +5,7 @@ class BaseBusCar
 {
 	int id, year, price, rNumber, places;
 public:
+	int getId() const;
 	BaseBusCar(): id(0), year(0), price(0), rNumber(0), places(0) {}
 	BaseBusCar(int id, int  year, int price, int rNumber, int places) : 
 		id(id), year(year), price(price), rNumber(rNumber), places(places){}
