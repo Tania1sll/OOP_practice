@@ -2,94 +2,175 @@
 #include "Car.h"
 #include "Bus.h"
 #include "Vector.h"
+#include <vector>
+#include <algorithm>
 using namespace std;
+//int main() {
+//
+//        Vector<int> obg1;
+//        int b = 0;
+//        int size = 13;
+//        cout << "\n\t\t\tFiling an Integer array\n";
+//        for (int i = 0; i < size; i++)
+//        {
+//            cout << "Enter Integer array: ";
+//            cin >> b;
+//            obg1.push_back(b);
+//        }
+//        Vector<double> obg2;
+//        double g = 0;
+//        size = 6;
+//        cout << "\n\t\t\tFiling an  Decimal array\n";
+//        for (int i = 0; i < size; i++)
+//        {
+//            cout << "Enter Decimal array: ";
+//            cin >> g;
+//            obg2.push_back(g);
+//        }
+//        Vector<char> obg3;
+//        char a = 0;
+//        size = 5;
+//        cout << "\n\t\t\tFiling an char array\n";
+//        for (int i = 0; i < size; i++)
+//        {
+//            cout << "Enter char: ";
+//            cin >> a;
+//            obg3.push_back(a);
+//        }
+//        cout << "\n\t\t\tInteger array\n";
+//        for (int i = 0; i < obg1.getSize(); i++)
+//            cout << obg1[i] << " ";
+//        cout << "\nDelete an element in integer array\n";
+//        obg1.pop_back();
+//        cout << "\n\t\t\tInteger array\n";
+//        for (int i = 0; i < obg1.getSize(); i++)
+//            cout << obg1[i] << " ";
+//        cout << "\n\t\t\tDecimal array\n";
+//        for (int i = 0; i < obg2.getSize(); i++)
+//            cout << obg2[i] << " ";
+//        cout << "\n\t\t\tChar array\n";
+//        for (int i = 0; i < obg3.getSize(); i++)
+//            cout << obg3[i];
+//        cout << endl;
+//
+//        Car car1(12354, 2025, 3651, 1354, 12, 2, "5D564D6", "FE56F4E6");
+//        Car car2(32454, 2021, 3641, 1654, 5, 4, "5f45f4", "f56f5");
+//        Vector<Car*> vectorCar;
+//        vectorCar.push_back(&car1);
+//        vectorCar.push_back(&car2);
+//        for (int i = 0; i < vectorCar.getSize(); i++)
+//            cout << *vectorCar[i] << endl;
+//
+//        Bus bus1(35523, 2021, 2354, 1211, 2, "No");
+//        Bus bus2(2646, 1999, 2346, 321, 6, "Yes");
+//        Bus bus3(4454, 1985, 35451, 313, 4, "Yes");
+//        Vector<Bus*> vectorBus;
+//        vectorBus.push_back(&bus1);
+//        vectorBus.push_back(&bus2);
+//        vectorBus.push_back(&bus3);
+//        for (int i = 0; i < vectorBus.getSize(); i++)
+//            cout << *vectorBus[i] << endl;
+//
+//        return 0;
+//}
 int main() {
+    vector<int> numbers1(10);
 
-        Vector<int> obg1;
-        int b = 0;
-        int size = 13;
-        cout << "\n\t\t\tFiling an Integer array\n";
-        for (int i = 0; i < size; i++)
+    int num;
+    cout << "\t\t\tVector one\n";
+    for (int i = 0; i < numbers1.size(); i++)
+    {
+        num = rand() % 10;
+        if (num % 2 == 0 && num != 0)
         {
-            cout << "Enter Integer array: ";
-            cin >> b;
-            obg1.push_back(b);
+            numbers1[i] = num;
+            cout << numbers1[i] << " ";
         }
-        Vector<double> obg2;
-        double g = 0;
-        size = 6;
-        cout << "\n\t\t\tFiling an  Decimal array\n";
-        for (int i = 0; i < size; i++)
+        else
+            --i;
+    }
+
+    cout << "\n\t\t\tVector two\n";
+    vector<int> numbers2(10);
+    vector<int>::iterator it = numbers2.begin();
+
+    while (it != numbers2.end())
+    {
+        num = rand() % 10;
+        if (num % 2 > 0)
         {
-            cout << "Enter Decimal array: ";
-            cin >> g;
-            obg2.push_back(g);
+            *it = num;
+            cout << *it << " ";
+            ++it;
         }
-        Vector<char> obg3;
-        char a = 0;
-        size = 5;
-        cout << "\n\t\t\tFiling an char array\n";
-        for (int i = 0; i < size; i++)
-        {
-            cout << "Enter char: ";
-            cin >> a;
-            obg3.push_back(a);
-        }
-        cout << "\n\t\t\tInteger array\n";
-        for (int i = 0; i < obg1.getSize(); i++)
-            cout << obg1[i] << " ";
-        cout << "\nDelete an element in integer array\n";
-        obg1.pop_back();
-        cout << "\n\t\t\tInteger array\n";
-        for (int i = 0; i < obg1.getSize(); i++)
-            cout << obg1[i] << " ";
-        cout << "\n\t\t\tDecimal array\n";
-        for (int i = 0; i < obg2.getSize(); i++)
-            cout << obg2[i] << " ";
-        cout << "\n\t\t\tChar array\n";
-        for (int i = 0; i < obg3.getSize(); i++)
-            cout << obg3[i];
+    }
+    cout << endl;
+
+    sort(numbers1.begin(), numbers1.end());
+    sort(numbers2.begin(), numbers2.end());
+
+    cout << "\n\t\t\tVector three\n";
+    vector<int> numbers3(numbers1.size() + numbers2.size());
+    merge(numbers1.begin(), numbers1.end(), numbers2.begin(), numbers2.end(), numbers3.begin());
+
+    for (int i = 0; i < numbers3.size(); i++)
+        cout << numbers3[i] << "";
+
+    vector<BaseBusCar*> engine;
+    int choice;
+    do {
         cout << endl;
+        cout << "\t\t\t1.Add a car" << endl;
+        cout << "\t\t\t2.Add a bus" << endl;
+        cout << "\t\t\t 3.Exit" << endl;
+        cout << "Your choice: ";
+        cin >> choice;
+        BaseBusCar* newBase = nullptr;
 
-        Car car1(12354, 2025, 3651, 1354, 12, 2, "5D564D6", "FE56F4E6");
-        Car car2(32454, 2021, 3641, 1654, 5, 4, "5f45f4", "f56f5");
-        Vector<Car*> vectorCar;
-        vectorCar.push_back(&car1);
-        vectorCar.push_back(&car2);
-        for (int i = 0; i < vectorCar.getSize(); i++)
-            cout << *vectorCar[i] << endl;
+        switch (choice)
+        {
+        case 1:
+            newBase = new Car();
+            cin >> *(Car*)newBase;
+            break;
+        case 2:
+            newBase = new Bus();
+            cin >> *(Bus*)newBase;
+            break;
+        case 3:
+            cout << "\t\t\tthe end\n";
+            break;
+        default:
+            cout << "There is no such choice";
+            break;
+        }
+        if (newBase) {
+            engine.push_back(newBase);
+        }
+    } while (choice != 3);
 
-        Bus bus1(35523, 2021, 2354, 1211, 2, "No");
-        Bus bus2(2646, 1999, 2346, 321, 6, "Yes");
-        Bus bus3(4454, 1985, 35451, 313, 4, "Yes");
-        Vector<Bus*> vectorBus;
-        vectorBus.push_back(&bus1);
-        vectorBus.push_back(&bus2);
-        vectorBus.push_back(&bus3);
-        for (int i = 0; i < vectorBus.getSize(); i++)
-            cout << *vectorBus[i] << endl;
+    vector<BaseBusCar*> busVector(engine);
+    for (int i = 0; i < engine.size(); i++) {
+        if (dynamic_cast<Car*>(engine[i])) {
+            engine.erase(engine.begin() + i);
+        }
+    }
 
-        return 0;
+    for (int i = 0; i < busVector.size(); i++) {
+        if (dynamic_cast<Bus*>(busVector[i])) {
+            busVector.erase(busVector.begin() + i);
+        }
+    }
+    cout << endl << "objects of the first vector: " << endl;
+    for (BaseBusCar* it : engine) {
+        cout << *it;
+        cout << endl;
+    }
+    cout << endl << "objects of the second vector:" << endl;
+    for (BaseBusCar* it2 : busVector) {
+        cout << *it2;
+    }
+    cout << endl << endl;
 }
-//практична 5
-//BaseBusCar* baseBusCar[2];
-    //	int choice;
-    //	for (int i = 0; i < 2; i++) {
-    //		cout << "Create:\n 1)Car \n 2)Bus\n Your choice: " << endl;
-    //		cin >> choice;
-    //		if (choice == 1) {
-    //			baseBusCar[i] = new Car();
-    //		}
-    //		else if (choice == 2) {
-    //			baseBusCar[i] = new Bus();
-    //		}
-    //		else {
-    //			cout << "Wrong number. Try again!" << endl;
-    //			i--;
-    //		}
-    //		baseBusCar[i]->input();
-    //	}
-    //	for (int i = 0; i < 2; i++) {
-    //		cout << "--------------------------------------------" << endl;
-    //		baseBusCar[i]->output();
-    //  }
+
+
