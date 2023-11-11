@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateCar</class>
+ <widget class="QDialog" name="CreateCar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>264</width>
+    <height>353</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="Id_LB">
+       <property name="text">
+        <string>Enter id:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="Id_LN"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="Year_LB">
+       <property name="text">
+        <string>Enter year:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="Year_LN"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="Price_LB">
+       <property name="text">
+        <string>Enter price:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="Price_LN"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="Places_LB">
+       <property name="text">
+        <string>Enter places:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="Places_LN"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="rNumber_LB">
+       <property name="text">
+        <string>Enter rNumber:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="rNumber_LN"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="Door_LB">
+       <property name="text">
+        <string>Enter door:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="Door_LN"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="Model_LB">
+       <property name="text">
+        <string>Enter model:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="Model_LN"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="VinCode_LB">
+       <property name="text">
+        <string>Enter vinCode:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="VinCode_LN"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Create </string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

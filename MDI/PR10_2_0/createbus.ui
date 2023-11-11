@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateBus</class>
+ <widget class="QDialog" name="CreateBus">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>222</width>
+     <height>220</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="Price_LN"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="Invalidity_LN"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="Year_LN"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="rNumber_LN"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="Places_LB">
+      <property name="text">
+       <string>Enter places:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="Id_LN"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="Id_LB">
+      <property name="text">
+       <string>Enter id:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="rNumber_LB">
+      <property name="text">
+       <string>Enter rNumber:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="Invalidity_LB">
+      <property name="text">
+       <string>Enter places invalidity:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="Price_LB">
+      <property name="text">
+       <string>Enter price:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="Places_LN"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="Year_LB">
+      <property name="text">
+       <string>Enter year:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="CreateBus_PB">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>260</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
