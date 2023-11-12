@@ -19,11 +19,11 @@ BaseBusCar::~BaseBusCar() {
 
 }
 
-int BaseBusCar::getId() { return id; }
-int BaseBusCar::getYear() { return year; }
-int BaseBusCar::getPrice() { return price; }
-int BaseBusCar::getRNumber() { return rNumber; }
-int BaseBusCar::getPlaces() { return places; }
+int BaseBusCar::getId()const { return id; }
+int BaseBusCar::getYear()const { return year; }
+int BaseBusCar::getPrice()const { return price; }
+int BaseBusCar::getRNumber()const { return rNumber; }
+int BaseBusCar::getPlaces()const { return places; }
 
 
 

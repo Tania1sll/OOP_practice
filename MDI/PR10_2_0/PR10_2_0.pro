@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,10 +14,12 @@ SOURCES += \
     Car.cpp \
     createbus.cpp \
     createcar.cpp \
+    dbmanager.cpp \
     main.cpp \
     mainwindow.cpp \
     showbus.cpp \
-    showcar.cpp
+    showcar.cpp \
+    sqlitedbmanager.cpp
 
 HEADERS += \
     BaseBusCar.h \
@@ -25,16 +27,20 @@ HEADERS += \
     Car.h \
     createbus.h \
     createcar.h \
+    dbmanager.h \
     mainwindow.h \
     showbus.h \
-    showcar.h
+    showcar.h \
+    sqlitedbmanager.h
 
 FORMS += \
     createbus.ui \
     createcar.ui \
+    dbmanager.ui \
     mainwindow.ui \
     showbus.ui \
-    showcar.ui
+    showcar.ui \
+    sqlitedbmanager.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

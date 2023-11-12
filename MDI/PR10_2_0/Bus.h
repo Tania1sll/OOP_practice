@@ -17,12 +17,12 @@ using namespace std;
 	  void input() override;
 	  void output()override;
       ~Bus();
-      int getId() override;
-      int getYear() override;
-      int getPrice() override;
-      int getRNumber() override;
-      int getPlaces() override;
-      string getPlacesInvalidity();
+//      int getId() const;
+//      int getYear() const;
+//      int getPrice() const;
+//      int getRNumber() const;
+//      int getPlaces() const;
+      string getPlacesInvalidity() const;
  };
 
 

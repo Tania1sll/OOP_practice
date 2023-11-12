@@ -20,14 +20,14 @@ Car::~Car()
 {
 
 }
-int Car::getId() { return BaseBusCar::getId(); }
-int Car::getYear() { return BaseBusCar::getYear(); }
-int Car::getPrice() { return BaseBusCar:: getPrice(); }
-int Car::getRNumber() { return BaseBusCar:: getRNumber(); }
-int Car::getPlaces() { return BaseBusCar:: getPlaces(); }
-int Car::getDoor() { return door; }
-string Car::getModel() { return model; }
-string Car::getVinCode(){return vinCode; }
+//int Car::getId() { return BaseBusCar::getId(); }
+//int Car::getYear() { return BaseBusCar::getYear(); }
+//int Car::getPrice() { return BaseBusCar:: getPrice(); }
+//int Car::getRNumber() { return BaseBusCar:: getRNumber(); }
+//int Car::getPlaces() { return BaseBusCar:: getPlaces(); }
+int Car::getDoor()const { return door; }
+string Car::getModel()const { return model; }
+string Car::getVinCode()const{return vinCode; }
 
 istream& operator>>(std::istream& input, Car& obj) {
    // BaseBusCar& basebus = obj;

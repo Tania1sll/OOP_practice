@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <Bus.h>
 
+#include "sqlitedbmanager.h"
+
 namespace Ui {
 class ShowBus;
 }
@@ -12,7 +14,8 @@ class ShowBus : public QDialog
 {
     Q_OBJECT
 public slots:
-    void updateList(QList <Bus*> buses);
+//    void updateList(QList <Bus*> buses);
+    void updateList (SQliteDBManager* sqliteDBManager);
 public:
     explicit ShowBus(QWidget *parent = nullptr);
     ~ShowBus();

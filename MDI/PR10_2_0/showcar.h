@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "Car.h"
+#include "sqlitedbmanager.h"
 
 namespace Ui {
 class ShowCar;
@@ -12,7 +13,8 @@ class ShowCar : public QDialog
 {
     Q_OBJECT
 public slots:
-    void updateList(QList <Car*> cars);
+//    void updateList(QList <Car*> cars);
+     void updateList (SQliteDBManager* sqliteDBManager);
 public:
     explicit ShowCar(QWidget *parent = nullptr);
     ~ShowCar();

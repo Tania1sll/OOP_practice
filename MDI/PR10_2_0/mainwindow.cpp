@@ -5,6 +5,7 @@
 #include "showcar.h"
 #include "createbus.h"
 #include "showbus.h"
+#include "sqlitedbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
      ui->setupUi(this);
     this->showCar= new ShowCar;
     this->showBus= new ShowBus;
+    this->sqliteDBManager = new SQliteDBManager;
+    sqliteDBManager->connectToDataBase();
+    this->showCar->updateList(this->sqliteDBManager);
+    this->showBus->updateList(this->sqliteDBManager);
+    sqliteDBManager->createTables();
 }
 
 MainWindow::~MainWindow()
@@ -32,13 +38,13 @@ MainWindow::~MainWindow()
 //}
 void MainWindow:: addCar(Car* car)
 {
-    cars.append(car);
-    emit addedCar(this->cars);
+        sqliteDBManager->inserIntoTable(*car);
+        emit addedCar(this->sqliteDBManager);
 }
 void MainWindow:: addBus(Bus* bus)
 {
-    buses.append(bus);
-    emit addedBus(this->buses);
+        sqliteDBManager->inserIntoTable(*bus);
+        emit addedBus(this->sqliteDBManager);
 }
 void MainWindow::on_CreateCar_PB_clicked()
 {

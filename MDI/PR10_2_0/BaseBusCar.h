@@ -14,9 +14,9 @@ public:
     friend ostream& operator<<(std::ostream& output, BaseBusCar& obj);
 	virtual void input();
 	virtual void output();
-    virtual int getId();
-    virtual int getYear();
-    virtual int getPrice();
-    virtual int getRNumber();
-    virtual int getPlaces();
+    virtual int getId()const;
+    virtual int getYear()const;
+    virtual int getPrice()const;
+    virtual int getRNumber()const;
+    virtual int getPlaces()const;
 };

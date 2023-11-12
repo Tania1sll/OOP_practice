@@ -14,12 +14,12 @@ Bus::~Bus()
 {
 
 }
-int Bus::getId() { return BaseBusCar::getId(); }
-int Bus::getYear() { return BaseBusCar::getYear(); }
-int Bus::getPrice() { return BaseBusCar:: getPrice(); }
-int Bus::getPlaces() { return BaseBusCar:: getPlaces(); }
-int Bus::getRNumber() { return BaseBusCar:: getRNumber(); }
-string Bus::getPlacesInvalidity() { return placesInvalidity; }
+//int Bus::getId() { return BaseBusCar::getId(); }
+//int Bus::getYear() { return BaseBusCar::getYear(); }
+//int Bus::getPrice() { return BaseBusCar:: getPrice(); }
+//int Bus::getPlaces() { return BaseBusCar:: getPlaces(); }
+//int Bus::getRNumber() { return BaseBusCar:: getRNumber(); }
+string Bus::getPlacesInvalidity()const { return placesInvalidity; }
 
 //std::istream& operator>>(std::istream& input, Bus& obj) {
 //	BaseBusCar& basebus = obj;
