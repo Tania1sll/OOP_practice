@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->showBus= new ShowBus;
     this->sqliteDBManager = new SQliteDBManager;
     sqliteDBManager->connectToDataBase();
-    this->showCar->updateList(this->sqliteDBManager);
-    this->showBus->updateList(this->sqliteDBManager);
+//    this->showCar->updateList(this->sqliteDBManager);
+//    this->showBus->updateList(this->sqliteDBManager);
     sqliteDBManager->createTables();
 }
 

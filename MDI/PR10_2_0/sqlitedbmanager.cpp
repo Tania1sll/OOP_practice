@@ -4,6 +4,15 @@
 #include <QSqlError>
 #include <QFile>
 #include <QDebug>
+#include <QDateTime>
+void logError(QString errorText) {
+    QFile file("logfile.txt");
+    if (file.open(QIODevice::Append)) {
+        QTextStream stream(&file);
+        stream << "\n\n\n" + QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") + ": " + errorText;
+    }
+    file.close();
+}
 
 SQliteDBManager* SQliteDBManager::instance = nullptr;
 
@@ -11,6 +20,11 @@ SQliteDBManager::SQliteDBManager()
 {   this-> db = QSqlDatabase::addDatabase("QSQLITE");
    // db.setHostName(PR11DataBase);
     this-> db.setDatabaseName("DataBase.db");
+    this-> db.setDatabaseName("DataBase.db");
+    if (!this->connectToDataBase()) {
+        logError("Unable to open database. Error description: " + db.lastError().text());
+        qFatal() << "Unable to open database. Error description: " + db.lastError().text();
+    }
 }
  //Метод для отримання екземпляру даного класу (патерн Singleton)
 SQliteDBManager* SQliteDBManager::getInstance() {
@@ -20,17 +34,27 @@ SQliteDBManager* SQliteDBManager::getInstance() {
     return instance;
 }
 
-void SQliteDBManager::connectToDataBase() {
+//void SQliteDBManager::connectToDataBase() {
+//    /* Перед підключенням до бази даних виконуємо перевірку на її існування.
+//     * В залежності від результату виконуємо відкриття бази даних або її відновлення
+//     * */
+//    if (QFile("DataBase.db").exists()) {
+//        this->openDataBase();
+//    } else {
+//        this->restoreDataBase();
+//    }
+//}
+bool SQliteDBManager::connectToDataBase() {
     /* Перед підключенням до бази даних виконуємо перевірку на її існування.
      * В залежності від результату виконуємо відкриття бази даних або її відновлення
      * */
-    if (QFile("DataBase.db").exists()) {
-        this->openDataBase();
-    } else {
+    if(db.open()){
+        return true;
+    } else
+        return false; /*else {
         this->restoreDataBase();
-    }
+    }*/
 }
-
 
 QSqlDatabase SQliteDBManager::getDB() {
     return db;
@@ -66,39 +90,70 @@ void SQliteDBManager::closeDataBase() {
     db.close();
 }
 
-bool SQliteDBManager::createTables()
+bool SQliteDBManager::createTables_Bus()
 {
     QSqlQuery query;
-    if(!query.exec("CREATE TABLE "+  CAR_NAME+" ("
-                     /* TABLE_ID*/ "id INTEGER PRIMARY KEY,"
-                     /*  TABLE_NUMBER */ "year INTEGER,"
-                     /*  TABLE_FLOOR*/ "price INTEGER ,"
-                     /*TABLE_NUM_OF_ROOM*/ "places INTEGER ,"
-                     /* TABLE_AREA*/  "rNumber INTEGER ,"
-                     /* TABLE_STREET*/ "door INTEGER ,"
-                     /*TABLE_SUN_SIDE*/ "model VARCHAR(255) ,"
-                     /*TABLE_CORNER_APAR*/  "vinCode VARCHAR(255) "
-                     ")"
-                     ))
-    {
-        qDebug() << "DataBase: error of create table: " <<CAR_NAME;
-        qDebug() << query.lastError().text();
-        return false;
-    }
-       // return true;
     if(!query.exec("CREATE TABLE "+ BUS_NAME_TABLE+" ("
-                  /*  TABLE_ID*/ "id INTEGER PRIMARY KEY,"
-                   /* TABLE_NUMBER*/ "year INTEGER NOT NULL,"
-                     /*  TABLE_FLOOR*/ "price INTEGER NOT NULL,"
-                     /*TABLE_NUM_OF_ROOM*/ "places INTEGER NOT NULL,"
-                     /* TABLE_AREA*/  "rNumber INTEGER NOT NULL,"
-                   /* TABLE_LIST_OF_ADD*/ "places invalidity VARCHAR(255)"
-                                                       ")")){
-   qDebug() << "DataBase: error of create table: " <<BUS_NAME_TABLE;
-   qDebug() << query.lastError().text();
+                  "id INTEGER PRIMARY KEY,"
+                    "year INTEGER NOT NULL,"
+                     "price INTEGER NOT NULL,"
+                     "places INTEGER NOT NULL,"
+                      "rNumber INTEGER NOT NULL,"
+                   "placesinvalidity VARCHAR(255)"
+                                                       ")"))
+    {
+        logError("Unable to create table: " + this->BUS_NAME_TABLE + ". Error description: " + query.lastError().text());
+        qWarning() << "Unable to create table: " + this->BUS_NAME_TABLE + ". Error description: " + query.lastError().text();
         return false;
     }
         return true;
+}
+bool SQliteDBManager::createTables_Car()
+{
+        QSqlQuery query;
+        if(!query.exec("CREATE TABLE "+  CAR_NAME+" ("
+                                                     "id INTEGER PRIMARY KEY,"
+                                                     "year INTEGER NOT NULL,"
+                                                     "price INTEGER NOT NULL,"
+                                                     "places INTEGER NOT NULL,"
+                                                     "rNumber INTEGER NOT NULL ,"
+                                                     "door INTEGER NOT NULL,"
+                                                     "model VARCHAR(255) ,"
+                                                     "vinCode VARCHAR(255) "
+                                                     ")"
+                        ))
+        {
+        logError("Unable to create table: " + this->CAR_NAME + ". Error description: " + query.lastError().text());
+        qWarning() << "Unable to create table: " + this->CAR_NAME + ". Error description: " + query.lastError().text();
+        return false;
+        }
+        return true;
+}
+bool SQliteDBManager::createTables(){
+
+        bool success = true;
+
+        // Check if the Book table exists.
+        QSqlQuery query_car;
+        //  query_book.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='Book'");
+        query_car.exec();
+
+        if (!query_car.next()) {
+            // The Book table does not exist. Create it.
+            success = createTables_Car();
+        }
+
+        // Check if the Song table exists.
+        QSqlQuery query_bus;
+        //query_song.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='Song'");
+        query_bus.exec();
+
+        if (!query_bus.next()) {
+            success = createTables_Bus();
+        }
+
+        return success;
+
 }
 
 bool SQliteDBManager::inserIntoTable(const Car& car) {
@@ -148,7 +203,7 @@ bool SQliteDBManager::inserIntoTable(const Bus& bus) {
                       TABLE_PLACES + ", " +
                       TABLE_RNUMBER + ", " +
                       TABLE_PLACESINVALIDITY + ") "
-                                          "VALUES (:id, :year, :price, :places, :rNumber, :places invalidity)");
+                                          "VALUES (:id, :year, :price, :places, :rNumber, :placesinvalidity)");
 //        query.prepare("INSERT INTO " + BUS_NAME_TABLE + " (" +
 //                      TABLE_ID + ", " +
 //                      TABLE_YEAR + ", " +
@@ -171,7 +226,7 @@ bool SQliteDBManager::inserIntoTable(const Bus& bus) {
         query.bindValue(":price", QString::number(bus.getPrice()));
         query.bindValue(":places", QString::number(bus.getPlaces()));
         query.bindValue(":rNumber", QString::number(bus.getRNumber()));
-        query.bindValue(":places invalidity", QString::fromStdString(bus.getPlacesInvalidity()));
+        query.bindValue(":placesinvalidity", QString::fromStdString(bus.getPlacesInvalidity()));
 
         if (!query.exec()) {
             qDebug() << "DataBase: error of insert into " << BUS_NAME_TABLE;

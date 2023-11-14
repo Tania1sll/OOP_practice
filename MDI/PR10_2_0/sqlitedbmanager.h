@@ -39,17 +39,19 @@ public:
     const QString TABLE_DOOR = "door";
     const QString TABLE_MODEL = "model";
     const QString TABLE_VINCODE= "vinCode";
-    const QString TABLE_PLACESINVALIDITY = "places invalidity";
+    const QString TABLE_PLACESINVALIDITY = "placesinvalidity";
 //    const QString TABLE_LIST_OF_ADD = "listOfAdd";
     bool openDataBase();
     bool restoreDataBase();
     void closeDataBase();
     bool createTables();
+     bool createTables_Car();
+     bool createTables_Bus();
     SQliteDBManager();
     static SQliteDBManager* getInstance();
 
     // Метод для підключення до бази даних
-    void connectToDataBase() override;
+   bool connectToDataBase() override;
 
     // Метод для отримання обробника (хендлера) підключення до БД
     QSqlDatabase getDB() override;
