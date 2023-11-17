@@ -45,14 +45,7 @@ void CreateCar::on_pushButton_clicked()
         this->hide();
     }
     else {
-//        QMessageBox::critical(this, "Error!", "You have not entered all the values!");
-        QFile file("logfile.txt");
-        if (file.open(QIODevice::Append)) {
-            QTextStream stream(&file);
-            stream << "\n\n\n" + QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") + ": " + "An error occurred, you probably didn`t enter all the values.";
-        }
-        file.close();qWarning() << "An error occurred, you probably didn`t enter all the values.";
-        QMessageBox::critical(this, "Warning!", "You have a free fields");
+        QMessageBox::critical(this, "Error!", "You have not entered all the values!");
     }
 }
 

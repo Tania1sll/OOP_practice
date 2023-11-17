@@ -9,7 +9,6 @@ public:
     BaseBusCar(int id, int  year, int price, int rNumber, int places);
     BaseBusCar(const BaseBusCar& other);
     ~BaseBusCar();
-//		id(id), year(year), price(price), rNumber(rNumber), places(places){}
     friend istream& operator>>(std::istream& input, BaseBusCar& obj);
     friend ostream& operator<<(std::ostream& output, BaseBusCar& obj);
 	virtual void input();

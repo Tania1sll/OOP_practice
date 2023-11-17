@@ -7,22 +7,6 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
-
-//namespace Ui {
-//class SQLiteDBManager;
-//}
-
-//class SQLiteDBManager : public QDialog
-//{
-//    Q_OBJECT
-
-//public:
-//    explicit SQLiteDBManager(QWidget *parent = nullptr);
-//    ~SQLiteDBManager();
-
-//private:
-//    Ui::SQLiteDBManager *ui;
-//};
 class SQliteDBManager: public DBManager
 {     QSqlDatabase db;
 
@@ -40,24 +24,16 @@ public:
     const QString TABLE_MODEL = "model";
     const QString TABLE_VINCODE= "vinCode";
     const QString TABLE_PLACESINVALIDITY = "placesinvalidity";
-//    const QString TABLE_LIST_OF_ADD = "listOfAdd";
-    bool openDataBase();
-    bool restoreDataBase();
-    void closeDataBase();
+    bool closeDataBase();
     bool createTables();
      bool createTables_Car();
      bool createTables_Bus();
     SQliteDBManager();
-    static SQliteDBManager* getInstance();
-
-    // Метод для підключення до бази даних
    bool connectToDataBase() override;
-
-    // Метод для отримання обробника (хендлера) підключення до БД
     QSqlDatabase getDB() override;
-
-    // Метод для вставки записів у таблицю
     bool inserIntoTable(const Car& car) override;
     bool inserIntoTable(const Bus& bus) override;
+
+    void writeToLog(const QString& message);
 };
 #endif // SQLITEDBMANAGER_H

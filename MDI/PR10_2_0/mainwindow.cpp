@@ -26,16 +26,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-//void MainWindow::on_pushButton_clicked()
-//{
-//    CreateCar createCar;
-//    createCar.setWindowTitle("Car");
-//    createCar.setModal(true);
-//    connect(&createCar, &CreateCar :: created, this, &MainWindow::addCar);
-//    createCar.exec();
-
-//}
 void MainWindow:: addCar(Car* car)
 {
         sqliteDBManager->inserIntoTable(*car);
